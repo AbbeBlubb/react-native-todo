@@ -5,7 +5,6 @@ import { StyleSheet, Text, View } from 'react-native';
 const ToDoList = () => {
   return(
     <View>
-       <Text>ToDo list</Text>
       <Text>ToDo list</Text>
       <Text>ToDo list</Text>
       <Text>ToDo list</Text>
@@ -16,7 +15,7 @@ const ToDoList = () => {
 
 const Input = () => {
   return(
-    <Text>Cat</Text>
+    <Text>The input field</Text>
   )
 }
 
@@ -24,10 +23,8 @@ export default function App() {
   return (
     <View style={styles.rootContainer}>
       <StatusBar style="auto" />
-
       <Text style={styles.header}>My ToDo list</Text>
       <ToDoList />
-
       <Input />
     </View>
   );
