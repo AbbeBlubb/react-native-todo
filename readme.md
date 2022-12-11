@@ -1,2 +1,26 @@
 # react-native-todo
-React Native Experimental
+
+React Native experimental
+
+## Functional requirements
+
+- The App must use React Native
+- User must be able to enter new to-do items
+- User must be able to see their to-do items
+- User must be able to clear items that are done
+
+## User stories reflecting functional requirements (must)
+
+Requirements for end user goal
+
+- As a user I want to have an input field where I can write text for new todos
+- As a user I want to have a submit button so I can add the text as a todo on the todo list
+- As a user I want new todos to be added to a list
+- As a user I want the todo list to be displayed on my screen
+- As a user I want to have a delete button on each todo so that I can remove todos
+- As a user I want the todo to be removed when I click on the remove button
+
+## User stories reflecting functional requirements (nice to have)
+
+- As a user I don't want empty todos
+- As a user I want to understand when I can and can not press the add button to add a todo
