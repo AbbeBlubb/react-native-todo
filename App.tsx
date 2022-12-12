@@ -1,5 +1,8 @@
+import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+
+
 
 
 const ToDoList = () => {
@@ -13,19 +16,21 @@ const ToDoList = () => {
   )
 }
 
-const Input = () => {
+const Input = (props: {inputText: string, setInputText: CallableFunction}) => {
   return(
-    <Text>The input field</Text>
+    <TextInput style={styles.input} placeholder={'Write here!'} value={props.inputText} onChangeText={(newInputText) => props.setInputText(newInputText) } />
   )
 }
 
 export default function App() {
+  const [inputText, setInputText] = useState<string>("");
+
   return (
     <View style={styles.rootContainer}>
       <StatusBar style="auto" />
       <Text style={styles.header}>My ToDo list</Text>
       <ToDoList />
-      <Input />
+      <Input inputText={inputText} setInputText={setInputText} />
     </View>
   );
 }
@@ -42,5 +47,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     padding: 20
+  },
+
+  input: {
+    margin: "30px 20px",
+    padding: 10,
+    width: "60%",
+    borderColor: "#27c09f",
+    borderWidth: 2,
   }
 });
