@@ -4,12 +4,13 @@ import { StyleSheet, Text, View } from "react-native";
 import { Input } from "./components/Input";
 import { PrimaryButton } from "./components/PrimaryButton";
 import { TodoListDisplayer } from "./components/TodoListDisplayer";
-  
+
 export default function App() {
     const [inputText, setInputText] = useState<string>("");
     const [todoList, setTodoList] = useState<string[]>([]);
 
     const submitNewTodo = () => {
+        if (inputText.trim() === "") return;
         setTodoList([...todoList, inputText]);
         setInputText("");
     };
