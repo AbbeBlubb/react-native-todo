@@ -1,10 +1,12 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-type Todo = string;
-type TodoList = Array<Todo>;
 
-export const TodoListDisplayer = (props: { todoList: TodoList }) => {
+interface ITodoListDisplayer {
+  todoList: Array<string>
+}
+
+export const TodoListDisplayer = (props: ITodoListDisplayer) => {
     return (
         <View>
             {props.todoList.map((todo, index) => {
