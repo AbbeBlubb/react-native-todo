@@ -1,17 +1,13 @@
-import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
-import { PrimaryButton } from "./components/PrimaryButton";
+import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { Input } from "./components/Input";
+import { PrimaryButton } from "./components/PrimaryButton";
 import { TodoListDisplayer } from "./components/TodoListDisplayer";
-
-
-type Todo = string;
-type TodoList = Array<Todo>;
-
+  
 export default function App() {
-    const [inputText, setInputText] = useState<string>("hej");
-    const [todoList, setTodoList] = useState<TodoList>([]);
+    const [inputText, setInputText] = useState<string>("");
+    const [todoList, setTodoList] = useState<string[]>([]);
 
     const submitNewTodo = () => {
         setTodoList([...todoList, inputText]);

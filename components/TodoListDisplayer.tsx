@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-
 interface ITodoListDisplayer {
   todoList: Array<string>
 }

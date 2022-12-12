@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, StyleSheet, View } from "react-native";
 
-
 interface IPrimaryButton {
     submitNewTodo: CallableFunction;
 }
