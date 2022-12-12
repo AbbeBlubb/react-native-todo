@@ -1,5 +1,6 @@
 import React from "react";
-import { Button } from "react-native";
+import { Button, StyleSheet, View } from "react-native";
+
 
 type Todo = string;
 type TodoList = Array<Todo>;
@@ -19,6 +20,7 @@ export const PrimaryButton = (props: IPrimaryButton) => {
     const todoList = props.todoList;
 
     return (
+        <View style={styles.primaryButton}>
         <Button
             onPress={props.submitNewTodo(
                 todoList,
@@ -30,5 +32,12 @@ export const PrimaryButton = (props: IPrimaryButton) => {
             color="#27c09f"
             accessibilityLabel="Add new todo to the todo list"
         />
+        </View>
     );
 };
+
+const styles = StyleSheet.create({
+    primaryButton: {
+      marginTop: 20
+    }
+  });
