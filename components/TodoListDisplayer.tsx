@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { SecondaryButton } from "./SecondaryButton";
 
 interface ITodoListDisplayer {
@@ -8,15 +8,33 @@ interface ITodoListDisplayer {
 
 export const TodoListDisplayer = (props: ITodoListDisplayer) => {
     return (
-        <View>
+        <View style={styles.todoListDisplayer}>
             {props.todoList.map((todo, index) => {
                 return (
-                    <View key={index}>
+                    <View style={styles.todoListDisplayerRow} key={index}>
                         <Text>{todo}</Text>
-                        <SecondaryButton deleteTodo={()=> {return}} />
+                        <SecondaryButton
+                            deleteTodo={() => {
+                                return;
+                            }}
+                        />
                     </View>
                 );
             })}
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    todoListDisplayer: {
+      width: "80%"
+    },
+    todoListDisplayerRow: {
+      width: "100%",
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center"
+    },
+});

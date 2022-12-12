@@ -7,7 +7,7 @@ interface ISecondaryButton {
 
 export const SecondaryButton = (props: ISecondaryButton) => {
     return (
-        <View style={styles.secondaryButton}>
+        <View>
             <Button
                 onPress={() => {
                     return;
@@ -19,9 +19,3 @@ export const SecondaryButton = (props: ISecondaryButton) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    secondaryButton: {
-        
-    },
-});
