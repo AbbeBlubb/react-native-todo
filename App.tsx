@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 
 
@@ -8,7 +8,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 const ToDoList = () => {
   return(
     <View>
-      <Text>ToDo list</Text>
+      <Text>map tdDo list here</Text>
       <Text>ToDo list</Text>
       <Text>ToDo list</Text>
       <Text>ToDo list</Text>
@@ -22,8 +22,55 @@ const Input = (props: {inputText: string, setInputText: CallableFunction}) => {
   )
 }
 
+// interface IsubmitNewTodo {
+//   setTodoList: CallableFunction, 
+//   todoList: TodoList, 
+//   inputText: string, 
+//   setInputText: CallableFunction
+// }
+
+const submitNewTodo = (todoList, inputText, setTodoList, setInputText) => {
+  //const todoList = props.todoList
+  console.log("submitnewtodo todolist ", todoList);
+  console.log("submitnewtodo inputtext props ", inputText)
+
+
+  // setTodoList([...todoList, inputText])
+  // setInputText("");
+}
+
+interface IPrimaryButton {
+  submitNewTodo: CallableFunction, 
+  setTodoList: CallableFunction, 
+  todoList: TodoList, 
+  inputText: string, 
+  setInputText: CallableFunction
+}
+
+const PrimaryButton = (props: IPrimaryButton) => {
+  console.log("primarybutton inputText: ", props.inputText)
+  console.log("primarybutton todoList: ", props.todoList)
+
+  const todoList = props.todoList;
+
+  return(
+    <Button
+      onPress={props.submitNewTodo(props.setTodoList, todoList, props.inputText, props.setInputText)}
+      title="Add todo"
+      color="#27c09f"
+      accessibilityLabel="Add new todo to the todo list"
+    />
+  )
+}
+
+type Todo = string;
+type TodoList= Array<Todo>
+
 export default function App() {
-  const [inputText, setInputText] = useState<string>("");
+  const [inputText, setInputText] = useState<string>("hej");
+  const [todoList, setTodoList] = useState<TodoList>([]);
+
+  console.log("App", inputText, todoList)
 
   return (
     <View style={styles.rootContainer}>
@@ -31,6 +78,7 @@ export default function App() {
       <Text style={styles.header}>My ToDo list</Text>
       <ToDoList />
       <Input inputText={inputText} setInputText={setInputText} />
+      <PrimaryButton submitNewTodo={submitNewTodo} setTodoList={setTodoList} todoList={todoList} setInputText={setInputText} inputText={inputText} />
     </View>
   );
 }
