@@ -1,7 +1,12 @@
 import React from "react";
 import { StyleSheet, TextInput } from "react-native";
 
-export const Input = (props: { inputText: string; setInputText: CallableFunction }) => {
+interface IInput {
+    inputText: string; 
+    setInputText: CallableFunction
+}
+
+export const Input = (props: IInput) => {
     return (
         <TextInput
             style={styles.input}
