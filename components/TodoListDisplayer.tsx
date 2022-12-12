@@ -1,8 +1,8 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 
 interface ITodoListDisplayer {
-  todoList: Array<string>
+    todoList: Array<string>;
 }
 
 export const TodoListDisplayer = (props: ITodoListDisplayer) => {
@@ -10,9 +10,15 @@ export const TodoListDisplayer = (props: ITodoListDisplayer) => {
         <View>
             {props.todoList.map((todo, index) => {
                 return (
-                  <View key={index}>
-                    <Text>{todo}</Text>
-                  </View>
+                    <View key={index}>
+                        <Text>{todo}</Text>
+                        <Button
+                            onPress={() => {return}}
+                            title="Done!"
+                            color="#bfded8"
+                            accessibilityLabel="Remove the todo from the todo list"
+                        />
+                    </View>
                 );
             })}
         </View>
