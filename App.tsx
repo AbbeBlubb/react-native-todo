@@ -15,11 +15,17 @@ export default function App() {
         setInputText("");
     };
 
+    const deleteTodo = (index: number) => {
+        let todoListCopy = [...todoList];
+        todoListCopy.splice(index, 1);
+        setTodoList(todoListCopy);
+    };
+
     return (
         <View style={styles.rootContainer}>
             <StatusBar style="auto" />
             <Text style={styles.header}>My ToDo list</Text>
-            <TodoListDisplayer todoList={todoList} />
+            <TodoListDisplayer todoList={todoList} deleteTodo={deleteTodo} />
             <Input inputText={inputText} setInputText={setInputText} />
             <PrimaryButton submitNewTodo={submitNewTodo} />
         </View>
