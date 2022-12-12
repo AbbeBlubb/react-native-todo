@@ -3,21 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import { PrimaryButton } from "./components/PrimaryButton";
 import { Input } from "./components/Input";
+import { TodoListDisplayer } from "./components/TodoListDisplayer";
 
-const TodoList = (props: { todoList: TodoList }) => {
-    return (
-        <View>
-            {props.todoList.map((todo, index) => {
-                return (
-                  <View key={index}>
-                    <Text>{todo}</Text>
-
-                  </View>
-                );
-            })}
-        </View>
-    );
-};
 
 type Todo = string;
 type TodoList = Array<Todo>;
@@ -35,7 +22,7 @@ export default function App() {
         <View style={styles.rootContainer}>
             <StatusBar style="auto" />
             <Text style={styles.header}>My ToDo list</Text>
-            <TodoList todoList={todoList} />
+            <TodoListDisplayer todoList={todoList} />
             <Input inputText={inputText} setInputText={setInputText} />
             <PrimaryButton submitNewTodo={submitNewTodo} />
         </View>
