@@ -18,8 +18,6 @@ const ToDoList = () => {
 }
 
 
-
-
 type Todo = string;
 type TodoList= Array<Todo>
 
@@ -27,10 +25,10 @@ export default function App() {
   const [inputText, setInputText] = useState<string>("hej");
   const [todoList, setTodoList] = useState<TodoList>([]);
 
-  const submitNewTodo = (todoList, inputText, setTodoList, setInputText) => {
-  
-    // setTodoList([...todoList, inputText])
-    // setInputText("");
+  const submitNewTodo = () => {
+    setTodoList([...todoList, inputText])
+    setInputText("");
+    console.log(inputText, todoList)
   }
 
   return (
@@ -39,18 +37,10 @@ export default function App() {
       <Text style={styles.header}>My ToDo list</Text>
       <ToDoList />
       <Input inputText={inputText} setInputText={setInputText} />
-      <PrimaryButton submitNewTodo={submitNewTodo} setTodoList={setTodoList} todoList={todoList} setInputText={setInputText} inputText={inputText} />
+      <PrimaryButton submitNewTodo={submitNewTodo} />
     </View>
   );
 }
-
-// interface IsubmitNewTodo {
-//   setTodoList: CallableFunction, 
-//   todoList: TodoList, 
-//   inputText: string, 
-//   setInputText: CallableFunction
-// }
-
 
 
 const styles = StyleSheet.create({
