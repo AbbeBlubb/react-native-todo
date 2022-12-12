@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import { SecondaryButton } from "./SecondaryButton";
 
 interface ITodoListDisplayer {
     todoList: Array<string>;
@@ -12,12 +13,7 @@ export const TodoListDisplayer = (props: ITodoListDisplayer) => {
                 return (
                     <View key={index}>
                         <Text>{todo}</Text>
-                        <Button
-                            onPress={() => {return}}
-                            title="Done!"
-                            color="#bfded8"
-                            accessibilityLabel="Remove the todo from the todo list"
-                        />
+                        <SecondaryButton deleteTodo={()=> {return}} />
                     </View>
                 );
             })}
