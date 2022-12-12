@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import { PrimaryButton } from './components/PrimaryButton';
+import { Input } from './components/Input';
 
 
 
@@ -16,11 +17,7 @@ const ToDoList = () => {
   )
 }
 
-const Input = (props: {inputText: string, setInputText: CallableFunction}) => {
-  return(
-    <TextInput style={styles.input} placeholder={'Write here!'} value={props.inputText} onChangeText={(newInputText) => props.setInputText(newInputText) } />
-  )
-}
+
 
 
 type Todo = string;
