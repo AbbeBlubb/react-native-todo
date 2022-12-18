@@ -14,7 +14,7 @@ export default function App() {
     }
 
     const submitNewTodo = () => {
-        if (inputText.trim() === "") return;
+        if (!inputIsValid()) return;
         setTodoList([...todoList, inputText]);
         setInputText("");
     };
