@@ -27,7 +27,7 @@ export default function App() {
             <Text style={styles.header}>My ToDo list</Text>
             <TodoListDisplayer todoList={todoList} deleteTodo={deleteTodo} />
             <Input inputText={inputText} setInputText={setInputText} />
-            <PrimaryButton submitNewTodo={submitNewTodo} />
+            <PrimaryButton onPress={submitNewTodo} title="Add todo" accessibilityLabel="Add a new todo to the list" />
         </View>
     );
 }
