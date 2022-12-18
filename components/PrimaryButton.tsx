@@ -3,21 +3,25 @@ import { Button, StyleSheet, View } from "react-native";
 
 interface IPrimaryButton {
   onPress: CallableFunction;
+  inputIsValid: CallableFunction;
   title: string;
   accessibilityLabel: string;
 }
 
 export const PrimaryButton = ({
   onPress,
+  inputIsValid,
   title,
   accessibilityLabel,
 }: IPrimaryButton) => {
+  const color = inputIsValid() ? "#27c09f" : "#bfded8";
+
   return (
     <View style={styles.primaryButton}>
       <Button
         onPress={() => onPress()}
         title={title}
-        color="#27c09f"
+        color={color}
         accessibilityLabel={accessibilityLabel}
       />
     </View>

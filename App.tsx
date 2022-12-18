@@ -9,6 +9,10 @@ export default function App() {
     const [inputText, setInputText] = useState<string>("");
     const [todoList, setTodoList] = useState<string[]>([]);
 
+    const inputIsValid = () => {
+        return !(inputText.trim() === "")
+    }
+
     const submitNewTodo = () => {
         if (inputText.trim() === "") return;
         setTodoList([...todoList, inputText]);
@@ -27,7 +31,7 @@ export default function App() {
             <Text style={styles.header}>My ToDo list</Text>
             <TodoListDisplayer todoList={todoList} deleteTodo={deleteTodo} />
             <Input inputText={inputText} setInputText={setInputText} />
-            <PrimaryButton onPress={submitNewTodo} title="Add todo" accessibilityLabel="Add a new todo to the list" />
+            <PrimaryButton onPress={submitNewTodo} inputIsValid={inputIsValid} title="Add todo" accessibilityLabel="Add a new todo to the list" />
         </View>
     );
 }
