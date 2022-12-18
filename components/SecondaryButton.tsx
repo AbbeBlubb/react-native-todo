@@ -1,19 +1,21 @@
 import React from "react";
-import { Button, StyleSheet, View } from "react-native";
+import { Button, View } from "react-native";
 
 interface ISecondaryButton {
-    deleteTodo: CallableFunction;
-    todoIndex: number;
+    onPress: CallableFunction;
+    callbackArgument: any;
+    title: string;
+    accessibilityLabel: string;
 }
 
 export const SecondaryButton = (props: ISecondaryButton) => {
     return (
         <View>
             <Button
-                onPress={(todoIndex) => props.deleteTodo(todoIndex)}
-                title="Done!"
+                onPress={(callbackArgument) => props.onPress(callbackArgument)}
+                title={props.title}
                 color="#bfded8"
-                accessibilityLabel="Remove the todo from the todo list"
+                accessibilityLabel={props.accessibilityLabel}
             />
         </View>
     );
