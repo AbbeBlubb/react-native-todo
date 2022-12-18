@@ -19,7 +19,7 @@ export const SecondaryButton = ({
       <Button
         onPress={() => onPress(callbackArgument)}
         title={title}
-        color="#bfded8"
+        color="#e2c568"
         accessibilityLabel={accessibilityLabel}
       />
     </View>
