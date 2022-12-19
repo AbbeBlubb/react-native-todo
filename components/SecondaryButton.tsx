@@ -6,6 +6,7 @@ interface ISecondaryButton {
   callbackArgument: any;
   title: string;
   accessibilityLabel: string;
+  testID: string;
 }
 
 export const SecondaryButton = ({
@@ -13,6 +14,7 @@ export const SecondaryButton = ({
   callbackArgument,
   title,
   accessibilityLabel,
+  testID,
 }: ISecondaryButton) => {
   return (
     <View>
@@ -21,6 +23,7 @@ export const SecondaryButton = ({
         title={title}
         color="#e2c568"
         accessibilityLabel={accessibilityLabel}
+        testID={testID}
       />
     </View>
   );

@@ -16,12 +16,13 @@ export const TodoListDisplayer = ({
       {todoList.map((todo, index) => {
         return (
           <View style={styles.todoListDisplayerRow} key={index}>
-            <Text>{todo}</Text>
+            <Text testID="todo-text">{todo}</Text>
             <SecondaryButton
               onPress={deleteTodo}
               callbackArgument={index}
               title="Done!"
               accessibilityLabel="Remove the todo from the todo list"
+              testID="button-delete-todo"
             />
           </View>
         );

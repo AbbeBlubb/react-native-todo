@@ -6,6 +6,7 @@ interface IPrimaryButton {
   inputIsValid: CallableFunction;
   title: string;
   accessibilityLabel: string;
+  testID: string;
 }
 
 export const PrimaryButton = ({
@@ -13,6 +14,7 @@ export const PrimaryButton = ({
   inputIsValid,
   title,
   accessibilityLabel,
+  testID,
 }: IPrimaryButton) => {
   const color = inputIsValid() ? "#27c09f" : "#bfded8";
 
@@ -23,6 +25,7 @@ export const PrimaryButton = ({
         title={title}
         color={color}
         accessibilityLabel={accessibilityLabel}
+        testID={testID}
       />
     </View>
   );

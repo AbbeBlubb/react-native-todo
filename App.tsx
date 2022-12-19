@@ -30,8 +30,8 @@ export default function App() {
             <StatusBar style="auto" />
             <Text style={styles.header}>My ToDo list</Text>
             <TodoListDisplayer todoList={todoList} deleteTodo={deleteTodo} />
-            <Input inputText={inputText} setInputText={setInputText} />
-            <PrimaryButton onPress={submitNewTodo} inputIsValid={inputIsValid} title="Add todo" accessibilityLabel="Add a new todo to the list" />
+            <Input inputText={inputText} setInputText={setInputText} testID="input-new-todo" />
+            <PrimaryButton onPress={submitNewTodo} inputIsValid={inputIsValid} title="Add todo" accessibilityLabel="Add a new todo to the list" testID="button-submit-new-todo" />
         </View>
     );
 }
