@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 interface IHeader {
   headerText: string;
@@ -8,15 +8,25 @@ interface IHeader {
 
 export const Header = ({ headerText, testID }: IHeader) => {
   return (
-    <Text style={styles.header}>{headerText}</Text>
+    <View style={styles.header}>
+      <Text style={styles.heading}>{headerText}</Text>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-    header: {
-        fontSize: 24,
-        fontWeight: "bold",
-        padding: 20,
-        backgroundColor: "#888", // Temporary background to see the area
-    },
+  header: {
+    width: "100%",
+    height: "25%",
+    backgroundColor: "#E08603",
+    position: "relative"
+  },
+  heading: {
+    position: "absolute",
+    color: "#E4C9A4",
+    top: "50%",
+    left: 15,
+    fontSize: 40,
+    fontWeight: "bold",
+  },
 });
