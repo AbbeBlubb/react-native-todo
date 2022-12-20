@@ -41,20 +41,14 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#fff",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-between",
     },
 
     header: {
         fontSize: 24,
         fontWeight: "bold",
         padding: 20,
+        backgroundColor: "#888", // Temporary background to see the area
     },
 
-    input: {
-        marginTop: 40,
-        padding: 20,
-        width: "60%",
-        borderColor: "#27c09f",
-        borderWidth: 2,
-    },
 });

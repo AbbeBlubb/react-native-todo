@@ -33,12 +33,12 @@ export const TodoListDisplayer = ({
 
 const styles = StyleSheet.create({
   todoListDisplayer: {
-    width: "80%",
+    width: "100%",
   },
   todoListDisplayerRow: {
+    backgroundColor: "#555", // Temporary background to see the areas
     width: "100%",
     paddingVertical: 10,
-    paddingHorizontal: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

@@ -33,6 +33,6 @@ export const PrimaryButton = ({
 
 const styles = StyleSheet.create({
   primaryButton: {
-    marginTop: 20,
+    //marginTop: 20,
   },
 });
