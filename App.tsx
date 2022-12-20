@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { Header } from "./components/Header";
 import { Input } from "./components/Input";
 import { PrimaryButton } from "./components/PrimaryButton";
 import { TodoListDisplayer } from "./components/TodoListDisplayer";
@@ -28,7 +29,7 @@ export default function App() {
     return (
         <View style={styles.rootContainer}>
             <StatusBar style="auto" />
-            <Text style={styles.header}>My ToDo list</Text>
+            <Header headerText="My ToDo list" testID="header" />
             <TodoListDisplayer todoList={todoList} deleteTodo={deleteTodo} />
             <Input inputText={inputText} setInputText={setInputText} testID="input-new-todo" />
             <PrimaryButton onPress={submitNewTodo} inputIsValid={inputIsValid} title="Add todo" accessibilityLabel="Add a new todo to the list" testID="button-submit-new-todo" />
@@ -43,12 +44,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
     },
-
-    header: {
-        fontSize: 24,
-        fontWeight: "bold",
-        padding: 20,
-        backgroundColor: "#888", // Temporary background to see the area
-    },
-
 });
