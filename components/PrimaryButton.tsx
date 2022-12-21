@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, StyleSheet, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 interface IPrimaryButton {
   onPress: CallableFunction;
@@ -16,23 +16,28 @@ export const PrimaryButton = ({
   accessibilityLabel,
   testID,
 }: IPrimaryButton) => {
-  const color = inputIsValid() ? "#27c09f" : "#bfded8";
+  const backgroundColor: string = inputIsValid() ? "#F09700" : "gray";
 
   return (
-    <View style={styles.primaryButton}>
-      <Button
-        onPress={() => onPress()}
-        title={title}
-        color={color}
-        accessibilityLabel={accessibilityLabel}
-        testID={testID}
-      />
-    </View>
+    <TouchableOpacity
+      onPress={() => onPress()}
+      accessibilityLabel={accessibilityLabel}
+      testID={testID}
+      style={[styles.primaryButton, { backgroundColor }]}
+    >
+      <Text style={styles.primaryButtonText}>{title}</Text>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   primaryButton: {
-    //marginTop: 20,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    borderRadius: 7,
+  },
+  primaryButtonText: {
+    color: "#371801",
+    fontSize: 20,
   },
 });
