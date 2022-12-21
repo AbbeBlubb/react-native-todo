@@ -5,7 +5,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
-  View
+  View,
 } from "react-native";
 import { Header } from "./components/Header";
 import { InputSection } from "./components/InputSection";
@@ -13,8 +13,17 @@ import { InputSection } from "./components/InputSection";
 import { TodoList } from "./components/TodoList";
 
 export default function App() {
+  const initialList = [
+    "Remove snow from car",
+    "Send postal card",
+    "Buy a Christmas tree",
+    "Studded tires for the pram",
+    "Decorate the Christmas tree",
+    "How to make Persian rice?",
+    "Find someone to roll meatballs",
+  ];
   const [inputText, setInputText] = useState<string>("");
-  const [todoList, setTodoList] = useState<string[]>([]);
+  const [todoList, setTodoList] = useState<string[]>(initialList);
 
   const inputIsValid = () => {
     return !(inputText.trim() === "");
