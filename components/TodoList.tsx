@@ -12,7 +12,7 @@ export const TodoList = ({
   deleteTodo,
 }: ITodoList) => {
   return (
-    <View style={styles.todoListDisplayer}>
+    <View style={styles.todoList}>
       {todoList.map((todo, index) => {
         return (
           <View style={styles.todoListRow} key={index}>
@@ -32,7 +32,7 @@ export const TodoList = ({
 };
 
 const styles = StyleSheet.create({
-  todoListDisplayer: {
+  todoList: {
     width: "100%",
   },
   todoListRow: {

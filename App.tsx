@@ -30,23 +30,25 @@ export default function App() {
     <View style={styles.rootContainer}>
       <StatusBar style="auto" />
       <Header headerText="My ToDo list" testID="header" />
-      <TodoList todoList={todoList} deleteTodo={deleteTodo} />
-      <View style={styles.inputSection}>
-        <View style={styles.inputWrapper}>
-          <Input
-            inputText={inputText}
-            setInputText={setInputText}
-            testID="input-new-todo"
-          />
-        </View>
-        <View style={styles.primaryButtonWrapper}>
-          <PrimaryButton
-            onPress={submitNewTodo}
-            inputIsValid={inputIsValid}
-            title="Add todo"
-            accessibilityLabel="Add a new todo to the list"
-            testID="button-submit-new-todo"
-          />
+      <View style={styles.bodySection}>
+        <TodoList todoList={todoList} deleteTodo={deleteTodo} />
+        <View style={styles.inputSection}>
+          <View style={styles.inputWrapper}>
+            <Input
+              inputText={inputText}
+              setInputText={setInputText}
+              testID="input-new-todo"
+            />
+          </View>
+          <View style={styles.primaryButtonWrapper}>
+            <PrimaryButton
+              onPress={submitNewTodo}
+              inputIsValid={inputIsValid}
+              title="Add todo"
+              accessibilityLabel="Add a new todo to the list"
+              testID="button-submit-new-todo"
+            />
+          </View>
         </View>
       </View>
     </View>
@@ -55,9 +57,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   rootContainer: {
-    flex: 1,
     backgroundColor: "#F3F0F1",
-    alignItems: "center",
+  },
+  bodySection: {
+    height: "75%", // Header is 25 %
     justifyContent: "space-between",
   },
   inputSection: {
