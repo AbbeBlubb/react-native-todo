@@ -23,6 +23,7 @@ export default function App() {
 
   const submitNewTodo = () => {
     if (!inputIsValid()) return;
+    Keyboard.dismiss();
     setTodoList([...todoList, inputText]);
     setInputText("");
   };
