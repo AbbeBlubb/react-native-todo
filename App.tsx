@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Header } from "./components/Header";
 import { Input } from "./components/Input";
 import { PrimaryButton } from "./components/PrimaryButton";
-import { TodoListDisplayer } from "./components/TodoListDisplayer";
+import { TodoList } from "./components/TodoList";
 
 export default function App() {
     const [inputText, setInputText] = useState<string>("");
@@ -30,7 +30,7 @@ export default function App() {
         <View style={styles.rootContainer}>
             <StatusBar style="auto" />
             <Header headerText="My ToDo list" testID="header" />
-            <TodoListDisplayer todoList={todoList} deleteTodo={deleteTodo} />
+            <TodoList todoList={todoList} deleteTodo={deleteTodo} />
             <View style={styles.inputSection}>
                 <View style={styles.inputWrapper}>
                     <Input inputText={inputText} setInputText={setInputText} testID="input-new-todo" />

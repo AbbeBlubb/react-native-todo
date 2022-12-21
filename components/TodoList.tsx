@@ -2,20 +2,20 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SecondaryButton } from "./SecondaryButton";
 
-interface ITodoListDisplayer {
+interface ITodoList {
   todoList: Array<string>;
   deleteTodo: CallableFunction;
 }
 
-export const TodoListDisplayer = ({
+export const TodoList = ({
   todoList,
   deleteTodo,
-}: ITodoListDisplayer) => {
+}: ITodoList) => {
   return (
     <View style={styles.todoListDisplayer}>
       {todoList.map((todo, index) => {
         return (
-          <View style={styles.todoListDisplayerRow} key={index}>
+          <View style={styles.todoListRow} key={index}>
             <Text testID="todo-text">{todo}</Text>
             <SecondaryButton
               onPress={deleteTodo}
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   todoListDisplayer: {
     width: "100%",
   },
-  todoListDisplayerRow: {
+  todoListRow: {
     backgroundColor: "#555", // Temporary background to see the areas
     width: "100%",
     paddingVertical: 10,
