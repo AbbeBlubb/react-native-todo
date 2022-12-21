@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center",
         paddingVertical: 25,
+        paddingHorizontal: 5,
       },
       inputWrapper: {
         width: "100%",
-        paddingHorizontal: 15,
       },
       primaryButtonWrapper: {
         marginTop: 15,

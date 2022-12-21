@@ -33,11 +33,11 @@ export const PrimaryButton = ({
 const styles = StyleSheet.create({
   primaryButton: {
     paddingHorizontal: 30,
-    paddingVertical: 10,
+    paddingVertical: 12,
     borderRadius: 7,
   },
   primaryButtonText: {
     color: "#371801",
-    fontSize: 20,
+    fontSize: 25,
   },
 });

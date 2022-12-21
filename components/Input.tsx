@@ -21,6 +21,7 @@ export const Input = ({ inputText, setInputText, testID }: IInput) => {
 
 const styles = StyleSheet.create({
   input: {
+    fontSize: 20,
     padding: 20,
     borderStyle: "dotted",
     borderColor: "#DABFB0",
