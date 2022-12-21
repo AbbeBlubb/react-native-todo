@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Input } from "./Input";
 import { PrimaryButton } from "./PrimaryButton";
 
@@ -35,7 +35,6 @@ export const InputSection = ({ inputText, setInputText, submitNewTodo, inputIsVa
 
 const styles = StyleSheet.create({
     inputSection: {
-        backgroundColor: "yellow", // Temporary background to visualize the area
         width: "100%",
         alignItems: "center",
         paddingVertical: 25,

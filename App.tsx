@@ -5,7 +5,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
-  View,
+  View
 } from "react-native";
 import { Header } from "./components/Header";
 import { InputSection } from "./components/InputSection";
@@ -36,7 +36,7 @@ export default function App() {
   return (
     <View style={styles.rootContainer}>
       <StatusBar style="auto" />
-      <Header headerText="My ToDo list" testID="header" />
+      <Header headerText="Todo's" testID="header" />
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.keyboardAvoidingView}
