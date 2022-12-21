@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SecondaryButton } from "./SecondaryButton";
 
 interface ITodoList {
@@ -7,12 +7,9 @@ interface ITodoList {
   deleteTodo: CallableFunction;
 }
 
-export const TodoList = ({
-  todoList,
-  deleteTodo,
-}: ITodoList) => {
+export const TodoList = ({ todoList, deleteTodo }: ITodoList) => {
   return (
-    <View style={styles.todoList}>
+    <ScrollView style={styles.todoList}>
       {todoList.map((todo, index) => {
         return (
           <View style={styles.todoListRow} key={index}>
@@ -27,7 +24,7 @@ export const TodoList = ({
           </View>
         );
       })}
-    </View>
+    </ScrollView>
   );
 };
 

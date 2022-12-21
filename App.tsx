@@ -4,9 +4,7 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
+  StyleSheet, View
 } from "react-native";
 import { Header } from "./components/Header";
 import { Input } from "./components/Input";
@@ -43,32 +41,27 @@ export default function App() {
         style={styles.keyboardAvoidingView}
         keyboardVerticalOffset={-900}
       >
-        <TouchableWithoutFeedback
-          onPress={Keyboard.dismiss}
-          style={styles.touchableWithoutFeedback}
-        >
-          <View style={styles.bodySection}>
-            <TodoList todoList={todoList} deleteTodo={deleteTodo} />
-            <View style={styles.inputSection}>
-              <View style={styles.inputWrapper}>
-                <Input
-                  inputText={inputText}
-                  setInputText={setInputText}
-                  testID="input-new-todo"
-                />
-              </View>
-              <View style={styles.primaryButtonWrapper}>
-                <PrimaryButton
-                  onPress={submitNewTodo}
-                  inputIsValid={inputIsValid}
-                  title="Add todo"
-                  accessibilityLabel="Add a new todo to the list"
-                  testID="button-submit-new-todo"
-                />
-              </View>
+        <View style={styles.bodySection}>
+          <TodoList todoList={todoList} deleteTodo={deleteTodo} />
+          <View style={styles.inputSection}>
+            <View style={styles.inputWrapper}>
+              <Input
+                inputText={inputText}
+                setInputText={setInputText}
+                testID="input-new-todo"
+              />
+            </View>
+            <View style={styles.primaryButtonWrapper}>
+              <PrimaryButton
+                onPress={submitNewTodo}
+                inputIsValid={inputIsValid}
+                title="Add todo"
+                accessibilityLabel="Add a new todo to the list"
+                testID="button-submit-new-todo"
+              />
             </View>
           </View>
-        </TouchableWithoutFeedback>
+        </View>
       </KeyboardAvoidingView>
     </View>
   );
@@ -81,7 +74,6 @@ const styles = StyleSheet.create({
   keyboardAvoidingView: {
     height: "75%", // Header is 25 %
   },
-  touchableWithoutFeedback: {},
   bodySection: {
     height: "100%",
     justifyContent: "space-between",
