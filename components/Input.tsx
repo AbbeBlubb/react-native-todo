@@ -21,10 +21,9 @@ export const Input = ({ inputText, setInputText, testID }: IInput) => {
 
 const styles = StyleSheet.create({
   input: {
-    marginTop: 40,
     padding: 20,
-    width: "60%",
-    borderColor: "#27c09f",
-    borderWidth: 2,
+    borderStyle: "dotted",
+    borderColor: "#DABFB0",
+    borderWidth: 3,
   },
 });

@@ -31,8 +31,14 @@ export default function App() {
             <StatusBar style="auto" />
             <Header headerText="My ToDo list" testID="header" />
             <TodoListDisplayer todoList={todoList} deleteTodo={deleteTodo} />
-            <Input inputText={inputText} setInputText={setInputText} testID="input-new-todo" />
-            <PrimaryButton onPress={submitNewTodo} inputIsValid={inputIsValid} title="Add todo" accessibilityLabel="Add a new todo to the list" testID="button-submit-new-todo" />
+            <View style={styles.inputSection}>
+                <View style={styles.inputWrapper}>
+                    <Input inputText={inputText} setInputText={setInputText} testID="input-new-todo" />
+                </View>
+                <View style={styles.primaryButtonWrapper}>
+                    <PrimaryButton onPress={submitNewTodo} inputIsValid={inputIsValid} title="Add todo" accessibilityLabel="Add a new todo to the list" testID="button-submit-new-todo" />
+                </View>
+            </View>
         </View>
     );
 }
@@ -44,4 +50,17 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
     },
+    inputSection: {
+        backgroundColor: "yellow", // Temporary background to visualize the area
+        width: "100%",
+        alignItems: "center",
+        paddingVertical: 25,
+    },
+    inputWrapper: {
+        width: "100%",
+        paddingHorizontal: 15,
+    },
+    primaryButtonWrapper: {
+        marginTop: 15,
+    }
 });
