@@ -13,14 +13,20 @@ export const TodoList = ({ todoList, deleteTodo }: ITodoList) => {
       {todoList.map((todo, index) => {
         return (
           <View style={styles.todoListRow} key={index}>
-            <Text testID="todo-text">{todo}</Text>
-            <SecondaryButton
-              onPress={deleteTodo}
-              callbackArgument={index}
-              title="Done!"
-              accessibilityLabel="Remove the todo from the todo list"
-              testID="button-delete-todo"
-            />
+            <View style={styles.todoListRowTextContainer}>
+              <Text testID="todo-text" style={styles.todoListRowText}>
+                {todo}
+              </Text>
+            </View>
+            <View style={styles.todoListRowDeleteContainer}>
+              <SecondaryButton
+                onPress={deleteTodo}
+                callbackArgument={index}
+                title="Done!"
+                accessibilityLabel="Remove the todo from the todo list"
+                testID="button-delete-todo"
+              />
+            </View>
           </View>
         );
       })}
@@ -33,11 +39,25 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   todoListRow: {
-    backgroundColor: "#555", // Temporary background to see the areas
-    width: "100%",
-    paddingVertical: 10,
+    marginHorizontal: 20,
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    //justifyContent: "space-between",
+    //alignItems: "center",
+    paddingTop: 20,
   },
+  todoListRowTextContainer: {
+    flex: 1,
+    fontSize: 30,
+    paddingBottom: 10,
+    borderStyle: "dotted",
+    borderBottomColor: "#DABFB0",
+    borderBottomWidth: 3,
+  },
+  todoListRowText: {
+    fontSize: 23,
+  },
+  todoListRowDeleteContainer: {
+    marginLeft: 20,
+    //paddingBottom: 10,
+  }
 });
