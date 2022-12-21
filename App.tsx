@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
-  View,
   TouchableWithoutFeedback,
-  Keyboard,
+  View,
 } from "react-native";
 import { Header } from "./components/Header";
 import { Input } from "./components/Input";
@@ -40,8 +40,12 @@ export default function App() {
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.keyboardAvoidingView}
+        keyboardVerticalOffset={-900}
       >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.touchableWithoutFeedback}>
+        <TouchableWithoutFeedback
+          onPress={Keyboard.dismiss}
+          style={styles.touchableWithoutFeedback}
+        >
           <View style={styles.bodySection}>
             <TodoList todoList={todoList} deleteTodo={deleteTodo} />
             <View style={styles.inputSection}>
@@ -76,11 +80,9 @@ const styles = StyleSheet.create({
   keyboardAvoidingView: {
     height: "75%", // Header is 25 %
   },
-  touchableWithoutFeedback: {
-    height: "100%",
-  },
+  touchableWithoutFeedback: {},
   bodySection: {
-    height: "100%", 
+    height: "100%",
     justifyContent: "space-between",
   },
   inputSection: {
