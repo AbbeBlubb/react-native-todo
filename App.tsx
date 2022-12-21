@@ -4,11 +4,12 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
-  StyleSheet, View
+  StyleSheet,
+  View,
 } from "react-native";
 import { Header } from "./components/Header";
-import { Input } from "./components/Input";
-import { PrimaryButton } from "./components/PrimaryButton";
+import { InputSection } from "./components/InputSection";
+
 import { TodoList } from "./components/TodoList";
 
 export default function App() {
@@ -43,24 +44,12 @@ export default function App() {
       >
         <View style={styles.bodySection}>
           <TodoList todoList={todoList} deleteTodo={deleteTodo} />
-          <View style={styles.inputSection}>
-            <View style={styles.inputWrapper}>
-              <Input
-                inputText={inputText}
-                setInputText={setInputText}
-                testID="input-new-todo"
-              />
-            </View>
-            <View style={styles.primaryButtonWrapper}>
-              <PrimaryButton
-                onPress={submitNewTodo}
-                inputIsValid={inputIsValid}
-                title="Add todo"
-                accessibilityLabel="Add a new todo to the list"
-                testID="button-submit-new-todo"
-              />
-            </View>
-          </View>
+          <InputSection
+            inputText={inputText}
+            setInputText={setInputText}
+            submitNewTodo={submitNewTodo}
+            inputIsValid={inputIsValid}
+          />
         </View>
       </KeyboardAvoidingView>
     </View>
@@ -77,18 +66,5 @@ const styles = StyleSheet.create({
   bodySection: {
     height: "100%",
     justifyContent: "space-between",
-  },
-  inputSection: {
-    backgroundColor: "yellow", // Temporary background to visualize the area
-    width: "100%",
-    alignItems: "center",
-    paddingVertical: 25,
-  },
-  inputWrapper: {
-    width: "100%",
-    paddingHorizontal: 15,
-  },
-  primaryButtonWrapper: {
-    marginTop: 15,
   },
 });
