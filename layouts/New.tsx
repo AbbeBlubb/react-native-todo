@@ -10,7 +10,7 @@ interface IInputSection {
   inputIsValid: CallableFunction;
 }
 
-export const InputSection = ({ inputText, setInputText, submitNewTodo, inputIsValid }: IInputSection) => {
+export const New = ({ inputText, setInputText, submitNewTodo, inputIsValid }: IInputSection) => {
   return (
     <View style={styles.inputSection}>
       <View style={styles.inputWrapper}>

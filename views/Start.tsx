@@ -9,7 +9,7 @@ import {
     View
 } from "react-native";
 import { Header } from "../layouts/Header";
-import { InputSection } from "../layouts/InputSection";
+import { New } from "../layouts/New";
 import { TodoList } from "../layouts/TodoList";
 import { TTodo, TTodoList } from "../services/types";
 
@@ -68,7 +68,7 @@ export const Start = () => {
       >
         <View style={styles.bodySection}>
           <TodoList todoList={todoList} deleteTodo={deleteTodo} />
-          <InputSection
+          <New
             inputText={inputText}
             setInputText={setInputText}
             submitNewTodo={submitNewTodo}
