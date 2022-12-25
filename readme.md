@@ -24,3 +24,13 @@ Requirements for end user goal
 
 - As a user I don't want empty todos
 - As a user I want to understand when I can and can not press the add button to add a todo
+
+## Stack
+
+- Built with Expo
+- For sinplicity on Windows, use CMD or PowerShell instead of WSL or Git Bash
+
+```cmd
+npm i
+npx expo start
+```
