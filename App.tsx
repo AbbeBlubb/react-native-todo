@@ -4,6 +4,7 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  SafeAreaView,
   StyleSheet,
   View,
 } from "react-native";
@@ -57,7 +58,7 @@ export default function App() {
   };
 
   return (
-    <View style={styles.rootContainer}>
+    <SafeAreaView style={styles.rootContainer}>
       <StatusBar style="auto" />
       <Header headerText="Todo's" testID="header" />
       <KeyboardAvoidingView
@@ -75,12 +76,13 @@ export default function App() {
           />
         </View>
       </KeyboardAvoidingView>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   rootContainer: {
+    flex: 1,
     backgroundColor: "#F3F0F1",
   },
   keyboardAvoidingView: {
