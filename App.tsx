@@ -5,19 +5,13 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
-  View,
+  View
 } from "react-native";
 import { Header } from "./layouts/Header";
 import { InputSection } from "./layouts/InputSection";
-
 import { TodoList } from "./layouts/TodoList";
+import { TTodo, TTodoList } from "./services/types";
 
-type TTodo = {
-  text: string;
-  key: string;
-};
-
-type TTodoList = Array<TTodo>;
 
 export default function App() {
   const todoTexts = [
