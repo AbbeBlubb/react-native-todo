@@ -1,6 +1,6 @@
 export type TTodo = {
     text: string;
-    key: string;
+    key: number;
   };
   
 export type TTodoList = Array<TTodo>;

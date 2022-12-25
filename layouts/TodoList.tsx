@@ -1,27 +1,28 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SecondaryButton } from "../components/SecondaryButton";
+import { TTodo, TTodoList } from "../services/types";
 
 interface ITodoList {
-  todoList: Array<string>;
+  todoList: TTodoList;
   deleteTodo: CallableFunction;
 }
 
 export const TodoList = ({ todoList, deleteTodo }: ITodoList) => {
   return (
     <ScrollView style={styles.todoList}>
-      {todoList.map((todo, index) => {
+      {todoList.map((todo: TTodo) => {
         return (
-          <View style={styles.todoListRow} key={index}>
+          <View style={styles.todoListRow} key={todo.key}>
             <View style={styles.todoListRowTextContainer}>
               <Text testID="todo-text" style={styles.todoListRowText}>
-                {todo}
+                {todo.text}
               </Text>
             </View>
             <View style={styles.todoListRowDeleteContainer}>
               <SecondaryButton
                 onPress={deleteTodo}
-                callbackArgument={index}
+                callbackArgument={todo.key}
                 title="Done!"
                 accessibilityLabel="Remove the todo from the todo list"
                 testID="button-delete-todo"

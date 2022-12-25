@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -23,23 +23,20 @@ export default function App() {
     "How to make Persian rice?",
     "Find someone to roll meatballs",
   ];
-
-  const [inputText, setInputText] = useState<string>("");
-  const [todoList, setTodoList] = useState<string[]>(todoTexts);
-
+  
   const todoFactory = (inputText: string): TTodo => {
     return {
       text: inputText,
-      key: "",
+      key: Math.random(),
     };
   };
-
+  
   const createTodoList = (list: string[]): TTodoList => {
     return list.map((todoText) => todoFactory(todoText));
   };
-
-  const initialList = createTodoList(todoTexts);
-  console.log(initialList);
+  
+  const [todoList, setTodoList] = useState<TTodoList>(createTodoList(todoTexts));
+  const [inputText, setInputText] = useState<string>("");
 
   const inputIsValid = () => {
     return !(inputText.trim() === "");
@@ -48,14 +45,14 @@ export default function App() {
   const submitNewTodo = () => {
     if (!inputIsValid()) return;
     Keyboard.dismiss();
-    setTodoList([...todoList, inputText]);
+    const newTodo: TTodo = todoFactory(inputText)
+    setTodoList([...todoList, newTodo]);
     setInputText("");
   };
 
-  const deleteTodo = (index: number) => {
-    let todoListCopy = [...todoList];
-    todoListCopy.splice(index, 1);
-    setTodoList(todoListCopy);
+  const deleteTodo = (key: number) => {
+    const updatedTodoList = todoList.filter((todo: TTodo) => todo.key !== key);
+    setTodoList(updatedTodoList);
   };
 
   return (
