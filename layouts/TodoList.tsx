@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { SecondaryButton } from "./SecondaryButton";
+import { SecondaryButton } from "../components/SecondaryButton";
 
 interface ITodoList {
   todoList: Array<string>;

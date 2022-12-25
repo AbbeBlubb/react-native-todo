@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Input } from "./Input";
-import { PrimaryButton } from "./PrimaryButton";
+import { Input } from "../components/Input";
+import { PrimaryButton } from "../components/PrimaryButton";
 
 interface IInputSection {
   inputText: string;

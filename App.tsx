@@ -7,10 +7,10 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { Header } from "./components/Header";
-import { InputSection } from "./components/InputSection";
+import { Header } from "./layouts/Header";
+import { InputSection } from "./layouts/InputSection";
 
-import { TodoList } from "./components/TodoList";
+import { TodoList } from "./layouts/TodoList";
 
 export default function App() {
   const initialList = [
