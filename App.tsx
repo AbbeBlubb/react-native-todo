@@ -5,16 +5,15 @@ import {
   KeyboardAvoidingView,
   Platform,
   StyleSheet,
-  View
+  View,
 } from "react-native";
 import { Header } from "./layouts/Header";
 import { InputSection } from "./layouts/InputSection";
 import { TodoList } from "./layouts/TodoList";
 import { TTodo, TTodoList } from "./services/types";
 
-
 export default function App() {
-  const todoTexts = [
+  const initialTodoTexts = [
     "Remove snow from car",
     "Send postal card",
     "Buy a Christmas tree",
@@ -23,19 +22,21 @@ export default function App() {
     "How to make Persian rice?",
     "Find someone to roll meatballs",
   ];
-  
+
   const todoFactory = (inputText: string): TTodo => {
     return {
       text: inputText,
       key: Math.random(),
     };
   };
-  
+
   const createTodoList = (list: string[]): TTodoList => {
     return list.map((todoText) => todoFactory(todoText));
   };
-  
-  const [todoList, setTodoList] = useState<TTodoList>(createTodoList(todoTexts));
+
+  const [todoList, setTodoList] = useState<TTodoList>(
+    createTodoList(initialTodoTexts)
+  );
   const [inputText, setInputText] = useState<string>("");
 
   const inputIsValid = () => {
@@ -45,7 +46,7 @@ export default function App() {
   const submitNewTodo = () => {
     if (!inputIsValid()) return;
     Keyboard.dismiss();
-    const newTodo: TTodo = todoFactory(inputText)
+    const newTodo: TTodo = todoFactory(inputText);
     setTodoList([...todoList, newTodo]);
     setInputText("");
   };
