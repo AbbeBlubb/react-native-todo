@@ -1,7 +1,7 @@
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SecondaryButton } from "../components/SecondaryButton";
-import { TTodo, TTodoList } from "../services/types";
+import { TTodoList } from "../services/types";
 
 interface IList {
   todoList: TTodoList;
@@ -10,28 +10,27 @@ interface IList {
 
 export const List = ({ todoList, deleteTodo }: IList) => {
   return (
-    <ScrollView style={styles.list}>
-      {todoList.map((todo: TTodo) => {
-        return (
-          <View style={styles.listRow} key={todo.key}>
-            <View style={styles.listRowTextContainer}>
-              <Text testID="todo-text" style={styles.listRowText}>
-                {todo.text}
-              </Text>
-            </View>
-            <View style={styles.listRowDeleteContainer}>
-              <SecondaryButton
-                onPress={deleteTodo}
-                callbackArgument={todo.key}
-                title="Done!"
-                accessibilityLabel="Remove the todo from the todo list"
-                testID="button-delete-todo"
-              />
-            </View>
+    <FlatList
+      data={todoList}
+      renderItem={({ item }) => (
+        <View style={styles.listRow} key={item.key}>
+          <View style={styles.listRowTextContainer}>
+            <Text testID="todo-text" style={styles.listRowText}>
+              {item.text}
+            </Text>
           </View>
-        );
-      })}
-    </ScrollView>
+          <View style={styles.listRowDeleteContainer}>
+            <SecondaryButton
+              onPress={deleteTodo}
+              callbackArgument={item.key}
+              title="Done!"
+              accessibilityLabel="Remove the todo from the todo list"
+              testID="button-delete-todo"
+            />
+          </View>
+        </View>
+      )}
+    />
   );
 };
 
@@ -57,5 +56,5 @@ const styles = StyleSheet.create({
   },
   listRowDeleteContainer: {
     marginLeft: 20,
-  }
+  },
 });
