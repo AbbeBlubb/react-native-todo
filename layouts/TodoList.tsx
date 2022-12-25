@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
   todoListRow: {
     marginHorizontal: 20,
     flexDirection: "row",
-    //justifyContent: "space-between",
-    //alignItems: "center",
     paddingTop: 20,
   },
   todoListRowTextContainer: {
@@ -58,6 +56,5 @@ const styles = StyleSheet.create({
   },
   todoListRowDeleteContainer: {
     marginLeft: 20,
-    //paddingBottom: 10,
   }
 });
