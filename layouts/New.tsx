@@ -3,16 +3,16 @@ import { StyleSheet, View } from "react-native";
 import { Input } from "../components/Input";
 import { PrimaryButton } from "../components/PrimaryButton";
 
-interface IInputSection {
+interface INew {
   inputText: string;
   setInputText: CallableFunction;
   submitNewTodo: CallableFunction;
   inputIsValid: CallableFunction;
 }
 
-export const New = ({ inputText, setInputText, submitNewTodo, inputIsValid }: IInputSection) => {
+export const New = ({ inputText, setInputText, submitNewTodo, inputIsValid }: INew) => {
   return (
-    <View style={styles.inputSection}>
+    <View style={styles.new}>
       <View style={styles.inputWrapper}>
         <Input
           inputText={inputText}
@@ -34,7 +34,7 @@ export const New = ({ inputText, setInputText, submitNewTodo, inputIsValid }: II
 };
 
 const styles = StyleSheet.create({
-    inputSection: {
+    new: {
         width: "100%",
         alignItems: "center",
         paddingVertical: 25,
