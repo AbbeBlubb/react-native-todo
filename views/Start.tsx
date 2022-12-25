@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Header } from "../layouts/Header";
 import { New } from "../layouts/New";
-import { TodoList } from "../layouts/TodoList";
+import { List } from "../layouts/List";
 import { TTodo, TTodoList } from "../services/types";
 
 export const Start = () => {
@@ -67,7 +67,7 @@ export const Start = () => {
         keyboardVerticalOffset={-900}
       >
         <View style={styles.bodySection}>
-          <TodoList todoList={todoList} deleteTodo={deleteTodo} />
+          <List todoList={todoList} deleteTodo={deleteTodo} />
           <New
             inputText={inputText}
             setInputText={setInputText}

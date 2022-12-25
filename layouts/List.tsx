@@ -3,23 +3,23 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SecondaryButton } from "../components/SecondaryButton";
 import { TTodo, TTodoList } from "../services/types";
 
-interface ITodoList {
+interface IList {
   todoList: TTodoList;
   deleteTodo: CallableFunction;
 }
 
-export const TodoList = ({ todoList, deleteTodo }: ITodoList) => {
+export const List = ({ todoList, deleteTodo }: IList) => {
   return (
-    <ScrollView style={styles.todoList}>
+    <ScrollView style={styles.list}>
       {todoList.map((todo: TTodo) => {
         return (
-          <View style={styles.todoListRow} key={todo.key}>
-            <View style={styles.todoListRowTextContainer}>
-              <Text testID="todo-text" style={styles.todoListRowText}>
+          <View style={styles.listRow} key={todo.key}>
+            <View style={styles.listRowTextContainer}>
+              <Text testID="todo-text" style={styles.listRowText}>
                 {todo.text}
               </Text>
             </View>
-            <View style={styles.todoListRowDeleteContainer}>
+            <View style={styles.listRowDeleteContainer}>
               <SecondaryButton
                 onPress={deleteTodo}
                 callbackArgument={todo.key}
@@ -36,15 +36,15 @@ export const TodoList = ({ todoList, deleteTodo }: ITodoList) => {
 };
 
 const styles = StyleSheet.create({
-  todoList: {
+  list: {
     width: "100%",
   },
-  todoListRow: {
+  listRow: {
     marginHorizontal: 20,
     flexDirection: "row",
     paddingTop: 20,
   },
-  todoListRowTextContainer: {
+  listRowTextContainer: {
     flex: 1,
     fontSize: 30,
     paddingBottom: 10,
@@ -52,10 +52,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "#DABFB0",
     borderBottomWidth: 3,
   },
-  todoListRowText: {
+  listRowText: {
     fontSize: 23,
   },
-  todoListRowDeleteContainer: {
+  listRowDeleteContainer: {
     marginLeft: 20,
   }
 });
