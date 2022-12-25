@@ -12,8 +12,15 @@ import { InputSection } from "./layouts/InputSection";
 
 import { TodoList } from "./layouts/TodoList";
 
+type TTodo = {
+  text: string;
+  key: string;
+};
+
+type TTodoList = Array<TTodo>;
+
 export default function App() {
-  const initialList = [
+  const todoTexts = [
     "Remove snow from car",
     "Send postal card",
     "Buy a Christmas tree",
@@ -22,8 +29,23 @@ export default function App() {
     "How to make Persian rice?",
     "Find someone to roll meatballs",
   ];
+
   const [inputText, setInputText] = useState<string>("");
-  const [todoList, setTodoList] = useState<string[]>(initialList);
+  const [todoList, setTodoList] = useState<string[]>(todoTexts);
+
+  const todoFactory = (inputText: string): TTodo => {
+    return {
+      text: inputText,
+      key: "",
+    };
+  };
+
+  const createTodoList = (list: string[]): TTodoList => {
+    return list.map((todoText) => todoFactory(todoText));
+  };
+
+  const initialList = createTodoList(todoTexts);
+  console.log(initialList);
 
   const inputIsValid = () => {
     return !(inputText.trim() === "");
