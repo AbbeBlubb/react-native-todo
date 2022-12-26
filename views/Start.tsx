@@ -1,43 +1,21 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
-    Keyboard,
-    KeyboardAvoidingView,
-    Platform,
-    SafeAreaView,
-    StyleSheet,
-    View
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  View,
 } from "react-native";
 import { Header } from "../layouts/Header";
-import { New } from "../layouts/New";
 import { List } from "../layouts/List";
+import { New } from "../layouts/New";
+import { createInitialTodoList, todoFactory } from "../services/createInitialTodoList";
 import { TTodo, TTodoList } from "../services/types";
 
 export const Start = () => {
-  const initialTodoTexts = [
-    "Remove snow from car",
-    "Send postal card",
-    "Buy a Christmas tree",
-    "Studded tires for the pram",
-    "Decorate the Christmas tree",
-    "How to make Persian rice?",
-    "Find someone to roll meatballs",
-  ];
-
-  const todoFactory = (inputText: string): TTodo => {
-    return {
-      text: inputText,
-      key: Math.random(),
-    };
-  };
-
-  const createTodoList = (list: string[]): TTodoList => {
-    return list.map((todoText) => todoFactory(todoText));
-  };
-
-  const [todoList, setTodoList] = useState<TTodoList>(
-    createTodoList(initialTodoTexts)
-  );
+  const [todoList, setTodoList] = useState<TTodoList>(createInitialTodoList());
   const [inputText, setInputText] = useState<string>("");
 
   const inputIsValid = () => {
@@ -78,7 +56,7 @@ export const Start = () => {
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   rootContainer: {
