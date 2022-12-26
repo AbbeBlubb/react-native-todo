@@ -20,7 +20,6 @@ export const Row = ({ item, deleteTodo }: IRow) => {
         <Delete
           onPress={deleteTodo}
           callbackArgument={item.key}
-          title="Done!"
           accessibilityLabel="Remove the todo from the todo list"
           testID="button-delete-todo"
         />
@@ -33,7 +32,6 @@ const styles = StyleSheet.create({
   row: {
     marginHorizontal: 20,
     flexDirection: "row",
-    paddingTop: 20,
   },
   rowTextContainer: {
     flex: 1,
@@ -42,11 +40,13 @@ const styles = StyleSheet.create({
     borderStyle: "dotted",
     borderBottomColor: "#DABFB0",
     borderBottomWidth: 3,
+    paddingTop: 20,
   },
   rowText: {
     fontSize: 23,
   },
   rowDeleteContainer: {
     marginLeft: 20,
+    paddingTop: 15,
   },
 });
