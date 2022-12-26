@@ -6,13 +6,14 @@ import {
   Platform,
   SafeAreaView,
   StyleSheet,
-  View,
+  View
 } from "react-native";
 import { Header } from "../layouts/Header";
 import { List } from "../layouts/List";
 import { New } from "../layouts/New";
-import { createInitialTodoList, todoFactory } from "../services/createInitialTodoList";
+import { createInitialTodoList } from "../services/createInitialTodoList";
 import { TTodo, TTodoList } from "../services/types";
+import { todoFactory } from "../services/utils";
 
 export const Start = () => {
   const [todoList, setTodoList] = useState<TTodoList>(createInitialTodoList());
