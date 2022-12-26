@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { SecondaryButton } from "./SecondaryButton";
+import { Delete } from "./Delete";
 import { TTodo } from "../services/types";
 
 interface IRow {
@@ -17,7 +17,7 @@ export const Row = ({ item, deleteTodo }: IRow) => {
         </Text>
       </View>
       <View style={styles.rowDeleteContainer}>
-        <SecondaryButton
+        <Delete
           onPress={deleteTodo}
           callbackArgument={item.key}
           title="Done!"
