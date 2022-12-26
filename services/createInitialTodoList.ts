@@ -9,6 +9,8 @@ const todoTexts = [
   "Decorate the Christmas tree",
   "How to make Persian rice?",
   "Find someone to roll meatballs",
+  "Sweep clean the fir needles from under the tree",
+  "Put on the Santa hat"
 ];
 
 const createTodoList = (list: string[]): TTodoList => {
