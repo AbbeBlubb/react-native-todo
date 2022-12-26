@@ -34,3 +34,7 @@ Requirements for end user goal
 npm i
 npx expo start
 ```
+
+## App images
+
+![Alt text](Screenshot%201.jpg) ![Alt text](Screenshot%202.jpg)
