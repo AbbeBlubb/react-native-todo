@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
@@ -6,7 +7,7 @@ import {
   Platform,
   SafeAreaView,
   StyleSheet,
-  View
+  View,
 } from "react-native";
 import { Header } from "../layouts/Header";
 import { List } from "../layouts/List";
@@ -27,12 +28,14 @@ export const Start = () => {
     if (!inputIsValid()) return;
     Keyboard.dismiss();
     const newTodo: TTodo = todoFactory(inputText);
+    AsyncStorage.setItem("todoList", JSON.stringify([...todoList, newTodo]));
     setTodoList([...todoList, newTodo]);
     setInputText("");
   };
 
   const deleteTodo = (key: number) => {
     const updatedTodoList = todoList.filter((todo: TTodo) => todo.key !== key);
+    AsyncStorage.setItem("todoList", JSON.stringify(updatedTodoList));
     setTodoList(updatedTodoList);
   };
 
