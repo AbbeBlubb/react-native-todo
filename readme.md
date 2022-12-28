@@ -37,4 +37,5 @@ npx expo start
 
 ## App images
 
-![Alt text](Screenshot%201.jpg) ![Alt text](Screenshot%202.jpg)
+<img src="Screenshot%201.jpg" alt="Screenshot of todo list" width="350"/>
+<img src="Screenshot%202.jpg" alt="Screenshot of focused input field" width="350"/>
